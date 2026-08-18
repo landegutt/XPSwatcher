@@ -159,7 +159,6 @@ def main():
 
         print("Ingen endringer funnet.")
 
-    send_push("🚀 Test fra GitHub XPS Watcher")
 
     save_state(current_events)
 
