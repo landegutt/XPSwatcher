@@ -139,6 +139,8 @@ def main():
 
         print("Ingen endringer funnet.")
 
+        send_push("XPSWatcher test fra GitHub 🚀")
+
     save_state(current_events)
 
 
