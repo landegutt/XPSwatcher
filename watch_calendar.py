@@ -8,6 +8,26 @@ URL = "https://calendar.google.com/calendar/ical/6d8046cd0c770e72aa60ffb4ce82a2b
 STATE_FILE = "events.json"
 
 
+PUSHOVER_USER = os.environ["PUSHOVER_USER"]
+PUSHOVER_TOKEN = os.environ["PUSHOVER_TOKEN"]
+
+
+def send_push(message):
+
+    response = requests.post(
+        "https://api.pushover.net/1/messages.json",
+        data={
+            "token": PUSHOVER_TOKEN,
+            "user": PUSHOVER_USER,
+            "title": "XPS Watcher",
+            "message": message,
+        },
+        timeout=30,
+    )
+
+    print(response.status_code)
+
+
 def load_calendar():
     response = requests.get(URL)
     response.raise_for_status()
@@ -139,7 +159,7 @@ def main():
 
         print("Ingen endringer funnet.")
 
-        send_push("XPSWatcher test fra GitHub 🚀")
+  send_push("🚀 Test fra GitHub XPS Watcher")
 
     save_state(current_events)
 
