@@ -155,6 +155,12 @@ def main():
             print(change)
             print("\n---------------------------\n")
 
+        body = "\n\n".join(changes)
+
+        send_push(body)
+
+
+
     else:
 
         print("Ingen endringer funnet.")
